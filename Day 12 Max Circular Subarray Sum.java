@@ -1,5 +1,4 @@
-Given an array of integers arr[] in a circular fashion. Find the maximum subarray sum that we can get if we assume the array to be circular.
-
+// Given an array of integers arr[] in a circular fashion. Find the maximum subarray sum that we can get if we assume the array to be circular.
 
 class Solution {
     // Function to find maximum circular subarray sum
@@ -16,7 +15,8 @@ class Solution {
             mx = Math.max(mx, sum1);
         }
 
-        if (mx < 0) return mx;
+        if (mx < 0)
+            return mx;
 
         return Math.max(mx, total - mn);
     }

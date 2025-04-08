@@ -1,7 +1,7 @@
-Given an integer array arr[]. You need to find the maximum sum of a subarray.
+// Given an integer array arr[]. You need to find the maximum sum of a subarray.
 
 class Solution {
-    public int maxSubarraySum(int[] nums) {  // Renamed method to match GFG expectation
+    public int maxSubarraySum(int[] nums) { // Renamed method to match GFG expectation
         int currSum = 0, maxSum = Integer.MIN_VALUE;
         for (int val : nums) {
             currSum += val;
