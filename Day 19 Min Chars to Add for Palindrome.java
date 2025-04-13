@@ -1,6 +1,6 @@
-Given a string s, the task is to find the minimum characters to be added at the front to make the string palindrome.
+// Given a string s, the task is to find the minimum characters to be added at the front to make the string palindrome.
 
-Note: A palindrome string is a sequence of characters that reads the same forward and backward.
+// Note: A palindrome string is a sequence of characters that reads the same forward and backward.
 
 class Solution {
     public static int minChar(String s) {
@@ -14,7 +14,7 @@ class Solution {
     private static int[] computeLPSArray(String str) {
         int n = str.length();
         int[] lps = new int[n];
-        int len = 0;  
+        int len = 0;
         int i = 1;
 
         while (i < n) {
