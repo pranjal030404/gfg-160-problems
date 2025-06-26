@@ -1,41 +1,38 @@
-Given an array arr[] of n sorted linked lists of different sizes.The task is to
-    merge them in such a way that after merging they will be a single sorted
-        linked list,
-    then return the head of the merged linked
-            list.
+// Given an array arr[] of n sorted linked lists of different sizes. The task is to merge them in such a way that after merging they will be a single sorted linked list, then return the head of the merged linked list.
 
-        import java.util.*
-    ;
+
+
+
+
+import java.util.*;
 
 class Solution {
-  // Function to merge K sorted linked list.
-  Node mergeKLists(List<Node> arr) {
-    // Custom comparator to compare Node data for the PriorityQueue
-    PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
-      public int compare(Node a, Node b) { return a.data - b.data; }
-    });
+    Node mergeKLists(List<Node> arr) {
+        PriorityQueue<Node> pq = new PriorityQueue<>(new Comparator<Node>() {
+            public int compare(Node a, Node b) {
+                return a.data - b.data;
+            }
+        });
 
-    // Add the head of each list to the priority queue
-    for (Node node : arr) {
-      if (node != null) {
-        pq.add(node);
-      }
+        for (Node node : arr) {
+            if (node != null) {
+                pq.add(node);
+            }
+        }
+
+        Node dummy = new Node(0);
+        Node tail = dummy;
+
+        while (!pq.isEmpty()) {
+            Node current = pq.poll();
+            tail.next = current;
+            tail = tail.next;
+
+            if (current.next != null) {
+                pq.add(current.next);
+            }
+        }
+
+        return dummy.next;
     }
-
-    Node dummy = new Node(0);
-    Node tail = dummy;
-
-    // Continue extracting the smallest node and pushing its next node
-    while (!pq.isEmpty()) {
-      Node current = pq.poll();
-      tail.next = current;
-      tail = tail.next;
-
-      if (current.next != null) {
-        pq.add(current.next);
-      }
-    }
-
-    return dummy.next;
-  }
 }
